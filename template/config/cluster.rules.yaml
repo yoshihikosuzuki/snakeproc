@@ -1,0 +1,3 @@
+hifiasm:
+  core: 4
+  mem_gb: 1000

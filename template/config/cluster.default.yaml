@@ -1,0 +1,6 @@
+__default__:
+  queue: "centos7.q"
+  name: "{rule}"
+  output: "{rule}.log"
+  core: 1
+  mem_gb: 1

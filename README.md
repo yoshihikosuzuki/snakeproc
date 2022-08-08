@@ -22,35 +22,15 @@ However, Snakemake can be sometimes counter-intuitive (at least for me):
 
 ## Detail
 
-### Directory structure
+1. Copy the template to your work place.
+2. Move to `config/` and edit `cluster_global.yaml` according to your environment and `config.yaml` and `cluster_wf.yaml` according to your data.
+3. Edit cluster settings in `run.sh` according to your environment.
+4. Run `run.sh`.
 
 ```
-workplace/
-  Snakefile
-  config/
-    env.toml
-    wf.toml
-  scripts/
-    01-X/
-      run_X.sh
-    02-Y/
-      run_Y.sh
-    03-Z/
-      run_Z.sh
-```
-
-### Snakefile
-
-```
-rule 01-X:
-  input:
-    X-input
-  output:
-    01-X/X.done
-  resources:
-    ...
-  shell:
-    """
-    script/01-X/run_X.sh
-    """
+config/
+|-- cluster.default.yaml : Default cluster job scheduling configuration
+|-- cluster.wf.yaml      : Rule-specific cluster job schefuling configuration
+|-- config.data.sh       : Input data-specific configuration
+`-- config.env.sh        : Environment-specific configuration
 ```
