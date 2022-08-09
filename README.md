@@ -34,3 +34,7 @@ config/
 |-- config.data.sh       : Input data-specific configuration
 `-- config.env.sh        : Environment-specific configuration
 ```
+
+## Useful links for information about Snakemake
+
+- [Command line options](https://snakemake.readthedocs.io/en/stable/executing/cli.html)

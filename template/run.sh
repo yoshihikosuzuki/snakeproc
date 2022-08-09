@@ -9,7 +9,10 @@ eval ${_SNAKEMAKE}
 eval "snakemake \
     -c 1 \
     -s ${ROOT}/workflow/main.smk \
-    --cluster-config ${ROOT}/config/cluster.default.yaml \
-    --cluster-config ${ROOT}/config/cluster.rules.yaml \
-    ${SMK_OPT} \
+    -d ${ROOT}/workflow \
+    --profile ${ROOT}/config/ \
     $@"
+
+    # --cluster-config ${ROOT}/config/cluster.default.yaml \
+    # --cluster-config ${ROOT}/config/cluster.rules.yaml \
+    # ${SMK_OPT} \

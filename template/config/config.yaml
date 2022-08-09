@@ -1,0 +1,22 @@
+# General settings for Snakemake
+printshellcmds: True
+
+
+# Settings for job schedulers
+default-resources:
+  - partition="all.q"
+  - threads=1
+#  - mem_gb=1
+#  - time_h=1
+  - tmpdir="tmp"
+cluster: >-
+  qsub
+  -p {resources.partition}
+  -N {rule}
+  -o {log}
+  -j y
+  -pe smp {resources.threads}
+#  -l h_vmem={resources.mem_gb}G
+#  -l h_rt={resources.time_h}:00:00
+jobs: 100
+latency-wait: 30

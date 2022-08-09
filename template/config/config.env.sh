@@ -33,7 +33,7 @@ _BEDTOOLS="module load bedtools/v2.29.2"
 ###################################################################################################
 
 # Example 1: Local executaiton without job schedulers.
-SMK_OPT=''
+# SMK_OPT=''
 
 # Example 2: HPC execution with a job scheduler.
 # NOTE: Specific parameter values for the scheduler are defined in `config/cluster.default.yaml`
