@@ -1,4 +1,4 @@
-# Environment-specific settings for Snakemake.
+# Environment-specific Snakemake settings
 
 # General settings
 keep-going: True
@@ -6,6 +6,7 @@ rerun-incomplete: True
 printshellcmds: True
 
 # Job schedulers
+# NOTE: Comment-out to run without job schedulers
 default-resources:
   - partition="compute"
   - threads=1

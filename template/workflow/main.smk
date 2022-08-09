@@ -1,4 +1,5 @@
 shell.executable("bash")
+shell.prefix(config["shell_prefix"])
 
 localrules: all
 rule all:
@@ -12,7 +13,8 @@ rule symlink_input:
     shell:
         f"""
         cd 00-data/hifi/
-        ./symlink_input.sh
+        ln -sf $(readlink -f {config["input"]["hifi"]}) hifi.fastq
+        # ./symlink_input.sh
         """
 
 rule hifiasm:
@@ -24,6 +26,7 @@ rule hifiasm:
         "01-asm/hifiasm/hifiasm.log"
     shell:
         f"""
+        eval {config["activate"]["hifiasm"]}
         cd 01-asm/hifiasm
         # ./run_hifiasm.sh
         touch hifiasm.done

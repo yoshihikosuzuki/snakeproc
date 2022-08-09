@@ -1,0 +1,5 @@
+# Input data-specific settings
+
+# Input file paths (absolute paths are preferred)
+input:
+  hifi: "/home/y/yoshihiko-suzuki/my-flash/test-snakeproc/hifi.fastq"
