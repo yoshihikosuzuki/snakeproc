@@ -1,6 +1,6 @@
 #!/bin/bash
-source ../../../config/config.data.sh
-source ../../../config/config.env.sh
+source ../../../config/data.sh
+source ../../../config/env.sh
 
 IN_HIFI=${INPUT_HIFI}
 

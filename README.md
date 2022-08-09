@@ -20,21 +20,19 @@ However, Snakemake can be sometimes counter-intuitive (at least for me):
 - Constraints on the directory structure and the output (dummy) files, so that we can define the entire pipeline in a procedural manner.
 - Separation between the main commands (as a shell script) and the other parameters of each task.
 
-## Detail
+## Configuration
 
-1. Copy the template to your work place.
-2. Move to `config/` and edit `cluster_global.yaml` according to your environment and `config.yaml` and `cluster_wf.yaml` according to your data.
-3. Edit cluster settings in `run.sh` according to your environment.
-4. Run `run.sh`.
-
-```
+```txt
 config/
-|-- cluster.default.yaml : Default cluster job scheduling configuration
-|-- cluster.wf.yaml      : Rule-specific cluster job schefuling configuration
-|-- config.data.sh       : Input data-specific configuration
-`-- config.env.sh        : Environment-specific configuration
+|-- config.yaml: Environment-specific settings for Snakemake and job schedulers
+|-- env.sh     : Environment and workflow-specific settings
+`-- data.sh    : Sample-specific settings
 ```
 
 ## Useful links for information about Snakemake
 
 - [Command line options](https://snakemake.readthedocs.io/en/stable/executing/cli.html)
+
+## TODOs
+
+- Share definition of resources between shell scripts and Snakemake (local and cluster)

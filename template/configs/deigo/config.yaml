@@ -1,0 +1,24 @@
+# Environment-specific settings for Snakemake.
+
+# General settings
+keep-going: True
+rerun-incomplete: True
+printshellcmds: True
+
+# Job schedulers
+default-resources:
+  - partition="compute"
+  - threads=1
+  - mem_gb=1
+  - time_h=1
+  - tmpdir="tmp"
+cluster: >-
+  sbatch
+  -p {resources.partition}
+  -J {rule}
+  -o {log}.cluster
+  -c {resources.threads}
+  --mem={resources.mem_gb}G
+  -t {resources.time_h}:00:00
+jobs: 100
+latency-wait: 30
