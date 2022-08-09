@@ -32,7 +32,3 @@ config/
 ## Useful links for information about Snakemake
 
 - [Command line options](https://snakemake.readthedocs.io/en/stable/executing/cli.html)
-
-## TODOs
-
-- Share definition of resources between shell scripts and Snakemake (local and cluster)

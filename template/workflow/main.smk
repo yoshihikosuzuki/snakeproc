@@ -9,7 +9,7 @@ rule all:
 localrules: symlink_input
 rule symlink_input:
     output:
-        hifi = "00-data/hifi/hifi.fastq"
+        "00-data/hifi/hifi.fastq"
     shell:
         f"""
         mkdir -p 00-data/hifi/
@@ -21,9 +21,10 @@ rule symlink_input:
 
 rule hifiasm:
     input:
-        rules.symlink_input.output.hifi
+        "00-data/hifi/hifi.fastq"
     output:
-        "01-asm/hifiasm/hifiasm.done"
+        "01-asm/hifiasm/hifi.bp.p_ctg.fasta",
+        "01-asm/hifiasm/hifi.bp.p_ctg.gfa"
     log:
         "01-asm/hifiasm/hifiasm.log"
     threads: config["hifiasm"]["threads"]
@@ -43,8 +44,6 @@ rule hifiasm:
         for DATA in *tg.gfa; do
             gfatools gfa2fa ${{{{DATA}}}} >${{{{DATA%.gfa}}}}.fasta
         done
-
-        touch ../../{{output}}
         """
 
 localrules: finish
